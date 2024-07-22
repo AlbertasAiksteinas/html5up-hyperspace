@@ -3,69 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete TD Element</title>
+    <title>Delete Specific Div</title>
     <style>
         .delete-btn {
             display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 5px 10px;
+            font-size: 12px;
             background-color: red;
             color: white;
             border: none;
             cursor: pointer;
+            margin-top: 10px;
+        }
+        .group {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
         }
     </style>
 </head>
 <body>
 
-<table border="1">
-    <tr>
-        <td id="centras">
-            <h1>Vaikai surado žmogaus kaukolę (14 komentarai)</h1>
-            <div class="group">
-                <div class="nick">
-                    <img class="flag" src="/js/images/flags16x11/ie.gif" alt="IE Ireland" title="IE Ireland">
-                    <b>axius</b><br>
-                    <span style="font-size:80%">2007-04-21 18:56:47</span>
-                </div>
-                mldc;]]]Robi
-                <div style="clear: both;"></div>
-            </div>
-            <div class="group">
-                <div class="nick">
-                    <img class="flag" src="/js/images/flags16x11/lt.gif" alt="LT Lithuania" title="LT Lithuania">
-                    <b>hawk 214</b><br>
-                    <span style="font-size:80%">2007-04-21 21:33:43</span>
-                </div>
-                nesamones parase ce
-                <div style="clear: both;"></div>
-            </div>
-            <!-- Add the remaining div elements here in a similar way -->
-            <div class="nick" style="float:none; padding: 5px 10px;">
-                <form enctype="multipart/form-data" action="?sid=1211&amp;act=show" method="POST">
-                    Jūsų vardas,pavardė:<br><input type="text" name="nick" style="width:20em" value="">
-                    <br>Trumpas komentaras:<br><textarea name="txt" style="display:block;width:98%;padding:0 10;height:10em"></textarea>
-                    <br><input type="submit" name="ivesk_komentara" value="Palikti komentarą">
-                </form>
-                <p style="font-style:italic;">WWW.PAJURIONAUJIENOS.COM pasilieka teisę pašalinti tuos skaitytojų komentarus,
-                kurie yra nekultūringi, nesusiję su tema, pasirašyti kito asmens vardu, pažeidžia įstatymus, reklamuoja,
-                kursto nelegaliems veiksmams.</p>
-                <p style="font-style:italic;">WWW.PAJURIONAUJIENOS.COM privalo informuoti specialiąsias Lietuvos tarnybas apie įžeidžiančių, smurtą,
-                rasinę, tautinę, religinę ar kitokią neapykantą skatinančių komentarų autorių duomenis.
-                O taip pat gali tai padaryti savo iniciatyva.</p>
-            </div>
-        </td>
-    </tr>
-</table>
-
-<button class="delete-btn" onclick="deleteTd()">Delete</button>
+<td id="centras">
+    <h1>Vaikai surado žmogaus kaukolę (14 komentarai)</h1>
+    <div class="group">
+        <div class="nick">
+            <img class="flag" src="/js/images/flags16x11/ie.gif" alt="IE Ireland" title="IE Ireland">
+            <b>axius</b><br>
+            <span style="font-size:80%">2007-04-21 18:56:47</span>
+        </div>
+        mldc;]]]Robi
+        <div style="clear: both;"></div>
+        <button class="delete-btn" onclick="deleteDiv(this)">Delete</button>
+    </div>
+    <div class="group">
+        <div class="nick">
+            <img class="flag" src="/js/images/flags16x11/lt.gif" alt="LT Lithuania" title="LT Lithuania">
+            <b>hawk 214</b><br>
+            <span style="font-size:80%">2007-04-21 21:33:43</span>
+        </div>
+        nesamones parase ce
+        <div style="clear: both;"></div>
+        <button class="delete-btn" onclick="deleteDiv(this)">Delete</button>
+    </div>
+    <!-- Add the remaining div elements here in a similar way -->
+</td>
 
 <script>
-    function deleteTd() {
-        var td = document.getElementById('centras');
-        if (td) {
-            td.parentNode.removeChild(td);
-        }
+    function deleteDiv(button) {
+        var div = button.parentNode;
+        div.parentNode.removeChild(div);
     }
 </script>
 
